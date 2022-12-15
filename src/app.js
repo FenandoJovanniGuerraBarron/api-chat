@@ -45,7 +45,9 @@ app.get('/', (req, res) => {
             conversations:'/api/v1/conversations',
             conversation:'/api/v1/conversations/:conversation_id',
             messages:'/api/v1/conversations/:conversation_id/messages',
-            message:'/api/v1/conversations/:conversation_id/messages/:message_id'
+            message:'/api/v1/conversations/:conversation_id/messages/:message_id',
+            participants:'/api/v1/conversations/:conversation_id/participants',
+            participant:'/api/v1/conversations/:conversation_id/participants/participant_id'
         }
     })
 })
@@ -53,8 +55,8 @@ app.get('/', (req, res) => {
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/conversations',conversationRouter)
-app.use('/api/v1/conversations/:conversation_id',messageRouter)
-app.use('/api/v1/conversations/:conversation_id',participantRouter)
+app.use('/api/v1/conversations/:conversation_id/messages',messageRouter)
+app.use('/api/v1/conversations/:conversation_id/participants',participantRouter)
 
 
 

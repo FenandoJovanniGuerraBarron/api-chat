@@ -4,7 +4,7 @@ const participantsServices= require('./participants.services')
 const ownerValidate = require('../middlewares/ownerValidate.middleware')
 
 
-router.post('/participants',passportJWT.authenticate('jwt',{session:false}),participantsServices.postParticipant)
-router.delete('/participants/:participant_id',passportJWT.authenticate('jwt',{session:false}),ownerValidate,participantsServices.deleteParticipant)
+router.post('/',passportJWT.authenticate('jwt',{session:false}),participantsServices.postParticipant)
+router.delete('/:participant_id',passportJWT.authenticate('jwt',{session:false}),ownerValidate,participantsServices.deleteParticipant)
 
 module.exports = router

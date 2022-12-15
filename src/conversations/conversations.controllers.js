@@ -74,14 +74,14 @@ const findConversationById = async (id) => {
 }
 
 const createConversation = async (obj) => {
+    let participant
+    let owner
     const data = await Conversations.create({
         id: uuid.v4(),
         title: obj.title,
         imageUrl: obj.imageUrl,
         userId: obj.userId
     })
-    let participant
-    let owner
     if (data) {
         participant = await Participants.create({
             id: uuid.v4(),
